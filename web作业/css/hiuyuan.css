@@ -1,0 +1,570 @@
+.button {
+    position: relative;
+    display: inline-block;
+    min-width: 105px;
+    height: 40px;
+    border-radius: 20px;
+    line-height: 40px;
+    background-color: #f2f2f2;
+    font-size: 16px;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+    text-align: center
+}
+a {
+    color: #fff;
+    text-decoration: none;
+}
+.button.size-s {
+    height: 32px;
+    border-radius: 16px;
+    line-height: 32px
+}
+
+.button.round {
+    min-width: 40px;
+    width: 40px
+}
+
+.button.round.size-s {
+    min-width: 32px;
+    width: 32px
+}
+
+.button.round.size-s-p {
+    min-width: 34px;
+    width: 34px
+}
+
+.button.remarkable {
+    color: #fff;
+    background-color: #ff410f
+}
+
+.button.selector {
+    padding: 0 15px 0 25px
+}
+
+.button.disabled {
+    color: #d1d1d1
+}
+
+.button .selector-icon {
+    display: inline-block;
+    margin-left: 5px;
+    font-size: 14px;
+    -webkit-transition: -webkit-transform .3s;
+    transition: -webkit-transform .3s;
+    -o-transition: transform .3s;
+    transition: transform .3s;
+    transition: transform .3s, -webkit-transform .3s;
+    float: right
+}
+
+.button .selector-icon.selecting {
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg)
+}
+
+.button .ripple {
+    display: block;
+    position: absolute;
+    background-color: rgba(0, 0, 0, .05);
+    border-radius: 100%;
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0)
+}
+
+.button .ripple.rippling {
+    -webkit-animation: ripple .45s linear;
+    animation: ripple .45s linear
+}
+
+.vip-banner {
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    height: 235px;
+    padding: 0 120px 65px;
+    background: url(../img/huiyuan/bg.png) 50%/cover no-repeat;
+    font-weight: 300;
+    color: #fff
+}
+
+.vip-banner, .vip-banner .user {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center
+}
+
+.vip-banner .user .avatar {
+    position: relative
+}
+
+.vip-banner .user .avatar:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    -webkit-box-shadow: 1px 1px 0 rgba(0, 0, 0, .05) inset, -1px -1px 0 rgba(0, 0, 0, .05) inset;
+    box-shadow: inset 1px 1px 0 rgba(0, 0, 0, .05), inset -1px -1px 0 rgba(0, 0, 0, .05)
+}
+
+.vip-banner .user .avatar img {
+    display: block;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+}
+
+.vip-banner .user .info {
+    margin-left: 20px
+}
+
+.vip-banner .user .info strong {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 20px
+}
+
+.vip-banner .user .info .visits-icon-vip-tag {
+    float: left;
+    font-size: 24px
+}
+
+.vip-banner .user .info .visits-icon-vip-tag.icon-88vip {
+    margin-top: 6px;
+    border-radius: 7px;
+    background: #261f1a;
+    font-size: 14px;
+    line-height: 1;
+    color: #bb895b
+}
+
+.vip-banner .user .info .levelTag {
+    float: left;
+    font-size: 24px;
+    margin-left: 5px
+}
+
+.vip-banner .order {
+    display: flex;
+    align-items: center
+}
+
+.vip-banner .order .button {
+    margin-left: 10px;
+    font-size: 32px;
+    color: #000
+}
+
+.vip-swiper {
+    position: relative;
+    margin-top: -80px
+}
+
+.vip-swiper .swiper-content {
+    overflow: hidden;
+    width: 1170px;
+    margin: 0 auto
+}
+
+.vip-swiper .swiper-wrapper {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex
+}
+
+.vip-swiper .swiper-slide {
+    width: 360px;
+    padding: 15px
+}
+
+.vip-swiper .action {
+    position: absolute;
+    z-index: 2
+}
+
+.vip-swiper .action.swiper-button-disabled {
+    color: #ccc;
+    cursor: not-allowed
+}
+
+.vip-swiper .action .iconfont {
+    font-size: 20px
+}
+
+.vip-swiper .swiper-prev {
+    left: 25px;
+    top: 250px
+}
+
+.vip-swiper .swiper-next {
+    right: 25px;
+    top: 250px
+}
+.vip-swiper .swiper-next .fa-arrow-circle-right, .vip-swiper .swiper-prev .fa-arrow-circle-left{
+    margin-top: 8px;
+    font-size: 25px;
+}
+
+.vip-card {
+    height: 392px;
+    margin: 0 auto;
+    padding: 20px 20px 30px;
+    border-radius: 4px;
+    background: #fff;
+    -webkit-box-shadow: 0 4px 15px 0 rgba(0, 0, 0, .1);
+    box-shadow: 0 4px 15px 0 rgba(0, 0, 0, .1);
+    overflow: hidden
+}
+
+.vip-card, .vip-card .card {
+    width: 320px;
+    position: relative
+}
+
+.vip-card .card {
+    height: 163px;
+    border-radius: 8px
+}
+
+.vip-card .card .info {
+    position: absolute;
+    z-index: 2;
+    left: 20px;
+    bottom: 10px;
+    color: #fff
+}
+
+.vip-card .card .info strong {
+    display: block;
+    line-height: 20px
+}
+
+.vip-card .card .info p {
+    margin: 0;
+    font-size: 12px;
+    line-height: 17px
+}
+
+.vip-card .card .process {
+    position: absolute;
+    top: 25px;
+    right: 20px;
+    width: 90px;
+    height: 90px
+}
+
+.vip-card .card .process .progress-stroke {
+    -webkit-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    -webkit-transform-origin: 50% 50%;
+    -ms-transform-origin: 50% 50%;
+    transform-origin: 50% 50%
+}
+
+.vip-card .card .process .process-count {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: hsla(0, 0%, 100%, .6);
+    font-weight: 300;
+    font-size: 12px
+}
+
+.vip-card .card .process .process-count p {
+    margin: 0
+}
+
+.vip-card .card .process .process-count strong {
+    font-size: 18px;
+    color: #fff
+}
+
+.vip-card .card .process .process-count em {
+    margin-top: 5px;
+    font-style: normal;
+    color: #fff
+}
+
+.vip-card .welfare {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap
+}
+
+.vip-card .welfare .unit {
+    width: 25%;
+    margin-top: 10px;
+    text-align: center;
+    cursor: pointer
+}
+
+.vip-card .welfare .unit .iconfont {
+    font-size: 40px;
+    font-weight: 1;
+    color: #ff410f
+}
+
+.vip-card .welfare .unit p {
+    margin: 5px 0 0;
+    color: #999;
+    line-height: 17px;
+    font-size: 12px
+}
+
+.vip-card .welfare .unit:hover .iconfont {
+    color: #f23d0e
+}
+
+.vip-card .welfare .unit:hover p {
+    color: #1a1a1a
+}
+
+.vip-card .welfare .unit.disabled .iconfont {
+    color: #d8d8d8 !important
+}
+
+.vip-card .welfare .unit.disabled p {
+    color: #d1d1d1 !important
+}
+
+.vip-card .button {
+    width: 275px;
+    margin: 30px 20px 0
+}
+
+.vip-card .notice {
+    margin: 40px 5px 0;
+    color: grey;
+    font-size: 12px
+}
+
+.card-88vip .card {
+    background-image: -webkit-gradient(linear, left top, right bottom, from(#4e4e4e), to(#131312));
+    background-image: -o-linear-gradient(top left, #4e4e4e, #131312);
+    background-image: linear-gradient(to bottom right, #4e4e4e, #131312)
+}
+
+.card-88vip .card:after {
+    position: absolute;
+    left: 0;
+    top: 0;
+    content: "";
+    width: 100%;
+    height: 100%;
+}
+
+.card-88vip .card .logo {
+    position: absolute;
+    z-index: 2;
+    top: 15px;
+    left: 20px;
+    width: 140px;
+    height: 14px;
+    background: url(../img/huiyuan/3.png) 50%/contain no-repeat
+}
+
+.card-88vip .card .company-logo {
+    position: absolute;
+    z-index: 2;
+    bottom: 15px;
+    right: 20px;
+    width: 50px;
+    height: 9px;
+    background: url(../img/huiyuan/8.png) 50%/contain no-repeat
+}
+
+.card-88vip .card .info {
+    color: #e7b986;
+    opacity: .77
+}
+
+.card-88vip .card .process .process-count em {
+    color: #ce996d
+}
+
+.card-svip .card {
+    background-image: -webkit-gradient(linear, left top, right bottom, from(#4c4c4c), to(#000));
+    background-image: -o-linear-gradient(top left, #4c4c4c, #000);
+    background-image: linear-gradient(to bottom right, #4c4c4c, #000)
+}
+
+.card-svip .card:after {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    content: "";
+    width: 148px;
+    height: 113px;
+    background: url(../img/huiyuan/4.png) 50%/contain no-repeat
+}
+
+.card-svip .card .logo {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    width: 105px;
+    height: 42px;
+    background: url(../img/huiyuan/2.png) 50%/contain no-repeat
+}
+
+.card-vip .card {
+    background-image: -webkit-gradient(linear, left top, right bottom, from(#a9a7b5), to(#312b51));
+    background-image: -o-linear-gradient(top left, #a9a7b5, #312b51);
+    background-image: linear-gradient(to bottom right, #a9a7b5, #312b51)
+}
+
+.card-vip .card:after {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    content: "";
+    width: 112px;
+    height: 113px;
+    background: url(../img/huiyuan/5.png) 50%/contain no-repeat
+}
+
+.card-vip .card .logo {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    width: 78px;
+    height: 41px;
+    background: url(../img/huiyuan/6.png) 50%/contain no-repeat
+}
+
+.card-trial .card {
+    background-image: -o-linear-gradient(238deg, #d3c7ad 0, #c49933 100%);
+    background-image: linear-gradient(-148deg, #d3c7ad, #c49933)
+}
+
+.card-trial .card:after {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    content: "";
+    width: 112px;
+    height: 112px;
+}
+
+.card-trial .card .logo {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    width: 116px;
+    height: 24px;
+}
+
+.card-trial .card .tip {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 49px;
+    height: 17px;
+    background: url(../img/huiyuan/11.png) 50%/contain no-repeat;
+}
+
+.card-trial .card .description {
+    position: absolute;
+    left: 20px;
+    right: 20px;
+    top: 64px;
+    font-weight: 300;
+    font-size: 12px;
+    color: #fff
+}
+
+
+.vip .footer-notice {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    margin: 45px 45px 80px;
+    color: grey;
+    font-weight: 300;
+    line-height: 25px
+}
+
+.vip .footer-notice span {
+    width: 25%;
+    font-size: 14px;
+}
+
+.vip .footer-notice span a {
+    color: #165aa6
+}
+
+
+
+html {
+    line-height: 1.15;
+    -webkit-text-size-adjust: 100%
+}
+
+body {
+    margin: 0
+}
+
+.page-container {
+    position: relative;
+    overflow: hidden;
+    color: #4a4a4a;
+    padding-bottom: 390px;
+    min-height: 100%;
+    background-color: #fff
+}
+
+.page-container .content-wrapper {
+    max-width: 1230px;
+    min-width: 850px;
+    margin: 0 auto
+}
+
+.page-container .content-wrapper .view-without-leftbar {
+    margin: 125px 0 94px
+}
+
+.page-container .content-wrapper .view-body {
+    margin-left: 280px;
+    padding: 125px 0 94px
+}

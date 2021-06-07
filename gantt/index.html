@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.bootcss.com/echarts/4.4.0-rc.1/echarts.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+    <script src="./lib/laydate/laydate.js"></script>
+    <script src="./lib/layer/layer.js"></script>
+    <script src="./gantt.js"></script>
+    <style>
+        div{
+
+        }
+    </style>
+</head>
+<body>
+<div id="mychart">
+
+</div>
+<button onclick="up()">更新数据</button>
+<div id="mychart1">
+
+</div>
+</body>
+<script>
+const data = {
+      "beginTime": "2020-02-16 00:00:00",
+      "endTime": "2020-02-24 00:00:00",
+      "satelliteTasks": [
+        {
+          "satelliteName":"一",
+          "task": [
+            {
+              "taskName":"回传",
+              "beginTime": "2020-02-16 20:21:30",
+              "endTime" : "2020-02-17 20:22:10"
+            },
+            {
+              "taskName":"数传",
+              "beginTime": "2020-02-17 20:21:30",
+              "endTime" : "2020-02-23 20:22:10"
+            }
+          ]
+        },{
+          "satelliteName":"二",
+          "task": [
+            {
+              "taskName":"回传",
+              "beginTime": "2020-02-16 20:21:30",
+              "endTime" : "2020-02-17 20:22:10"
+            },
+            {
+              "taskName":"回放",
+              "beginTime": "2020-02-23 20:21:30",
+              "endTime" : "2020-02-24 20:22:10"
+            },
+            {
+              "taskName":"数传",
+              "beginTime": "2020-02-17 20:21:30",
+              "endTime" : "2020-02-17 20:22:10"
+            }
+          ]
+        },{
+          "satelliteName":"三",
+          "task": [
+            {
+              "taskName":"回传",
+              "beginTime": "2020-02-16 20:21:30",
+              "endTime" : "2020-02-17 20:22:10"
+            },
+            {
+              "taskName":"数传",
+              "beginTime": "2020-02-17 20:21:30",
+              "endTime" : "2020-02-17 20:22:10"
+            }
+          ]
+        },{
+          "satelliteName":"四",
+          "task": [
+            {
+              "taskName":"回传",
+              "beginTime": "2020-02-16 20:21:30",
+              "endTime" : "2020-02-17 20:22:10"
+            },
+            {
+              "taskName":"数传",
+              "beginTime": "2020-02-17 20:21:30",
+              "endTime" : "2020-02-17 20:22:10"
+            }
+          ]
+        },{
+          "satelliteName":"五",
+          "task": [
+            {
+              "taskName":"回传",
+              "beginTime": "2020-02-16 20:21:30",
+              "endTime" : "2020-02-17 20:22:10"
+            },
+            {
+              "taskName":"数传",
+              "beginTime": "2020-02-17 20:21:30",
+              "endTime" : "2020-02-17 20:22:10"
+            }
+          ]
+        },{
+          "satelliteName":"六",
+          "task": [
+            {
+              "taskName":"回传",
+              "beginTime": "2020-02-16 20:21:30",
+              "endTime" : "2020-02-17 20:22:10"
+            },
+            {
+              "taskName":"数传",
+              "beginTime": "2020-02-17 20:21:30",
+              "endTime" : "2020-02-17 20:22:10"
+            }
+          ]
+        },{
+          "satelliteName":"七",
+          "task": [
+            {
+              "taskName":"回传",
+              "beginTime": "2020-02-16 20:21:30",
+              "endTime" : "2020-02-17 20:22:10"
+            },
+            {
+              "taskName":"数传",
+              "beginTime": "2020-02-17 20:21:30",
+              "endTime" : "2020-02-17 20:22:10"
+            }
+          ]
+        },
+        {
+          "satelliteName":"八",
+          "task": [
+            {
+              "taskName":"回传",
+              "beginTime": "2020-02-16 20:21:30",
+              "endTime" : "2020-02-17 20:22:10"
+            },
+            {
+              "taskName":"数传",
+              "beginTime": "2020-02-17 20:21:30",
+              "endTime" : "2020-02-17 20:22:10"
+            }
+          ]
+        },
+        {
+          "satelliteName":"九",
+          "task": [
+            {
+              "taskName":"回传",
+              "beginTime": "2020-02-16 20:21:30",
+              "endTime" : "2020-02-17 20:22:10"
+            },
+            {
+              "taskName":"数传",
+              "beginTime": "2020-02-17 20:21:30",
+              "endTime" : "2020-02-17 20:22:10"
+            }
+          ]
+        },
+        {
+          "satelliteName":"十",
+          "task": [
+            {
+              "taskName":"回传",
+              "beginTime": "2020-02-16 20:21:30",
+              "endTime" : "2020-02-17 20:22:10"
+            },
+            {
+              "taskName":"数传",
+              "beginTime": "2020-02-17 20:21:30",
+              "endTime" : "2020-02-17 20:22:10"
+            }
+          ]
+        }
+      ]
+    }
+
+let gantt = new Gantt({
+  el:'mychart',
+  height:'400px',
+  width:'100%',
+  data:data
+})
+  function up(){
+    $.ajax({
+      type:'post',
+      url:'http://127.0.0.1:3000/api/echarts/update',
+      data:{
+        beginTime:'2019-10-20 10:20:30'
+      },
+      success:(res)=>{
+        gantt1.setOption(res.data)
+        console.log(res)
+      }
+    })
+  }
+
+let gantt1 = new Gantt({
+  el:'mychart1',
+  height:'400px',
+  width:'100%',
+  url:'http://127.0.0.1:3000/api/echarts'
+})
+
+</script>
+</html>

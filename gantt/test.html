@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+/*  new Vue({
+el: '#mychart',
+name: "home",
+data() {
+return {
+dialogFormVisible: false,
+url: '/api/echarts',
+el: this.el,
+form: {
+TimeInterval: [],
+TaskName: '',
+durationTime: ''
+},
+formLabelWidth: '120px',
+TimeInterval: [new Date(), new Date(new Date().getTime() + 1000 * 60 * 60 * 24 * 7)],
+yAxis: [],
+series: [],
+myChart: ''
+}
+},
+methods: {
+init() {
+this.myChart = this.$echarts.init(document.getElementById(this.el));
+this.myChart.setOption(this.options)
+},
+_yAxis(data) {
+let _yAxis = [];
+data = data.data
+data.satelliteTasks.forEach((item) => {
+_yAxis.push(item.satelliteName)
+})
+return _yAxis.reverse()
+},
+/!*      _xAxis(data){
+data =data.data
+let beginTime =new Date(data.beginTime.replace(new RegExp("-","gm"),"/")).getTime()
+let endTime = new Date(data.endTime.replace(new RegExp("-","gm"),"/")).getTime()
+const dayMilliSeconds  = 1000*60*60*24;
+const _xAxis =[]
+for (beginTime; beginTime <= endTime; beginTime += dayMilliSeconds) {
+_xAxis.push(this.formatDate(beginTime))
+}
+return _xAxis
+},*!/
+_series(data) {
+let seriesData = []
+const scatterObject = {
+name: '',
+type: 'scatter',
+itemStyle: {
+normal: {
+opacity: 0.8
+}
+},
+symbolSize(val) {
+return val[2];
+},
+data: []
+}
+let satelliteTasks = data.data.satelliteTasks
+for (let i = 0; i < satelliteTasks.length; i++) {
+let arr = []
+satelliteTasks[i].task.forEach((item) => {
+/!*arr2前两个参数为对应的X,Y轴, 第三个参数为图形大小，第四个为任务名称，第五个为结束时间*!/
+let arr2 = [item.beginTime, satelliteTasks[i].satelliteName,
+this._symbolSize(item.beginTime, item.endTime), item]
+arr.unshift(arr2)
+})
+let ob = Object.assign({}, scatterObject)
+ob.name = satelliteTasks[i].satelliteName
+ob.data = arr
+seriesData.push(ob)
+}
+return seriesData
+},
+_symbolSize(beginTime, endTime) {
+beginTime = new Date(beginTime).getTime()
+endTime = new Date(endTime).getTime()
+console.log(endTime - beginTime)
+const a = Math.floor((Math.random(1) + 0.1) * 40)
+return a
+},
+showTaskDetail(data) {
+this.form.TimeInterval = [data.beginTime, data.endTime]
+this.form.TaskName = data.taskName
+console.log(data)
+this.form.durationTime = this.getDurationTime(data.beginTime, data.endTime)
+this.dialogFormVisible = true
+},
+updateTaskDetail() {
+this.dialogFormVisible = false
+},
+getDurationTime(beginTime, endTime) {
+/!*两个时间戳计算相隔多少天多少小时多少分多少秒*!/
+beginTime = new Date(beginTime).getTime()
+endTime = new Date(endTime).getTime()
+let _timeStamp = (endTime - beginTime) / 1000;
+let _durationTime = ''
+const year = Math.floor(_timeStamp / 86400 / 365);
+if (year > 0) {
+_durationTime += year + ' 年 '
+}
+_timeStamp = _timeStamp % (86400 * 365);
+const month = Math.floor(_timeStamp / 86400 / 30);
+if (month > 0) {
+_durationTime += month + ' 月 '
+}
+_timeStamp = _timeStamp % (86400 * 30);
+const day = Math.floor(_timeStamp / 86400);
+if (day > 0) {
+_durationTime += day + ' 日 '
+}
+_timeStamp = _timeStamp % 86400;
+const hour = Math.floor(_timeStamp / 3600);
+if (hour > 0) {
+_durationTime += hour + ' 时 '
+}
+_timeStamp = _timeStamp % 3600;
+const minute = Math.floor(_timeStamp / 60);
+if (minute > 0) {
+_durationTime += minute + ' 分 '
+}
+_timeStamp = _timeStamp % 60;
+const second = _timeStamp;
+if (second > 0) {
+_durationTime += second + ' 秒 '
+}
+/!*  console.log(year+','+month+','+day+','+hour+','+minute+','+second);*!/
+return _durationTime
+},
+/!*    formatDate(date){
+date =new Date(date)
+let retDate = date.getFullYear() + "-";  // 获取年份。
+retDate += date.getMonth() + 1 + "-";    // 获取月份。
+retDate += date.getDate();               // 获取日。
+retDate += date.getHours()>=10?' '+ date.getHours() :' 0'+ date.getHours()     // 获取时。
+retDate += date.getMinutes()>=10?':'+date.getMinutes() :':0'+ date.getMinutes()       // 获取分。
+retDate +=date.getSeconds() >=10?':'+ date.getSeconds() :':0'+ date.getSeconds()      // 获取秒。
+return retDate;
+}*!/
+},
+async beforeMount() {
+let {data} = await this.$axios.get(this.url)
+console.log(data)
+this.myChart.showLoading()
+if (data.code == 200) {
+this.yAxis = this._yAxis(data)
+/!*   this.xAxis = this._xAxis(data)*!/
+this.series = this._series(data)
+this.myChart.setOption(this.options)
+this.myChart.hideLoading()
+}
+},
+mounted() {
+this.init()
+window.addEventListener("resize", () => {
+this.myChart.resize();
+});
+this.myChart.on('dblclick', (params) => {
+this.showTaskDetail(params.data[3])
+});
+},
+beforeDestroy() {
+window.removeEventListener("resize", null)
+},
+computed: {
+options() {
+const that = this
+return {
+animation: true,
+legend: {
+data: [].concat(that.yAxis).reverse()
+},
+tooltip: {
+show: true,
+formatter: function (params) {
+/!*悬浮显示的任务名称*!/
+return params.seriesName + ' : ' + JSON.stringify(params.data[3])
+}
+},
+xAxis: {
+type: 'time',
+position: 'top',
+},
+yAxis: {
+type: 'category',
+data: that.yAxis,
+},
+dataZoom: [
+{
+type: 'slider',
+show: true,
+xAxisIndex: [0],
+},
+{
+type: 'slider',
+show: true,
+yAxisIndex: [0],
+left: '92%',
+},
+{
+type: 'inside',
+xAxisIndex: [0],
+},
+{
+type: 'inside',
+yAxisIndex: [0],
+}
+],
+series: that.series
+}
+}
+}
+
+})*/
+</body>
+</html>

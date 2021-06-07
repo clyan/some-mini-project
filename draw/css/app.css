@@ -1,0 +1,367 @@
+
+/* latin-ext */
+@font-face {
+    font-family: 'Coda';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Coda Regular'), local('Coda-Regular'), url(https://fonts.gstatic.com/s/coda/v15/SLXHc1jY5nQ8FUsGa6aN.woff2) format('woff2');
+    unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+    font-family: 'Coda';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Coda Regular'), local('Coda-Regular'), url(https://fonts.gstatic.com/s/coda/v15/SLXHc1jY5nQ8FUUGaw.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #ffffff url('../img/geometry2.png'); /* Background pattern from Subtle Patterns */
+    font-family: 'Coda', cursive;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+header{
+    width: 100%;
+    text-align: center;
+}
+header h1{
+    font-family: "FangSong";
+    font-size: 45px;
+}
+a {
+    text-decoration:none
+}
+h1 {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+}
+
+/*
+ * Styles for the deck of cards
+ */
+
+.deck {
+    width: 660px;
+    min-height: 680px;
+    background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
+    padding: 32px;
+    border-radius: 10px;
+    box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 3em;
+    float: left;
+}
+
+.deck .card {
+    height: 125px;
+    width: 125px;
+    background: #2e3d49;
+    font-size: 0;
+    color: #ffffff;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+    transform: rotateY(180deg);
+    transition: transform 0.3s;
+}
+.deck .card:hover{
+
+}
+.deck .card.open {
+    transform: rotateY(360deg);
+    background: #02b3e4 !important;
+    cursor: default;
+    transition: transform 0.3s;
+}
+
+.deck .card.show {
+    font-size: 33px;
+}
+
+.deck .card.match {
+    cursor: default;
+    background: #02ccba !important;
+    font-size: 33px;
+    animation: fbig 0.3s alternate;
+}
+@keyframes fbig {
+    from{transform: scale(1)}
+    to {transform: scale(1.1)}
+}
+/*
+ * Styles for the Score Panel
+ */
+
+.score-panel {
+    text-align: left;
+    width: 825px;
+    margin-bottom: 10px;
+}
+
+.score-panel .stars {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    margin: 0 5px 0 0;
+}
+
+.score-panel .stars li {
+    list-style: none;
+    display: inline-block;
+}
+
+.score-panel .restart {
+    float: right;
+    cursor: pointer;
+    margin-right: 180px;
+}
+.score-panel .music {
+    float: right;
+    cursor: pointer;
+    padding: 0 10px;
+}
+.setting{
+    background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
+    height: 270px;
+    width: 150px;
+    float: right;
+    margin-left: 20px;
+    border-radius: 10px;
+    box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
+}
+.setting-icon{
+    padding: 10px;
+}
+.setting-icon p{
+    text-align: center;
+}
+.setting-icon i.fa-music{
+    color:rgb(234, 206, 206);
+}
+.setting-icon i{
+    padding: 0 10px;
+    cursor: pointer;
+    color:rgb(255, 255, 255);
+}
+.copyright {
+    position:absolute;
+    bottom:0;
+}
+.copyright a {
+    text-decoration:none;
+    color:#16a085;
+}
+.copyright a:hover {
+    text-decoration:underline;
+}
+.button {
+    position: relative;
+    padding: 23px;
+    width: 125px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    outline: none;
+    font-size: 18px;
+}
+.fa-star{
+    color: red;
+}
+.button.type {
+    color:#16a085;
+    display: block;
+    margin: 0 auto;
+}
+.button.type.type:after,.button.type.type:before {
+    content:"";
+    display:block;
+    position:absolute;
+    top:100%;
+    left:0;
+    width:100%;
+    height:2px;
+    background-color:#4190c6;
+    transition:all 0.3s ease;
+    transform:scale(0.85);
+}
+.active .button.type.type:after {
+
+    transform:scale(1);
+}
+.active .type a{
+    color: #eacece;
+}
+.active .button.type.type:before {
+    top:0;
+    transform:scale(1);
+}
+
+.button.type.type:hover:before {
+    top:0;
+    transform:scale(1);
+}
+.button.type.type:hover:after {
+    transform:scale(1);
+}
+.type a{
+    color: #fff;
+}
+.type:hover a{
+    color: #eacece;
+}
+.setting-icon i:hover{
+    color: rgb(234, 206, 206);
+}
+.md-modal {
+    position: fixed;
+    top: 8%;
+    left: 50%;
+    width: 50%;
+    max-width: 426px;
+    min-width: 320px;
+    height: auto;
+    z-index: 2000;
+    visibility: unset;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -ms-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    box-shadow:2px 2px 20px 2px rgba(0,0,0,0.3);
+}
+
+.md-show {
+    visibility: visible;
+}
+
+.md-overlay {
+    position: fixed;
+    width: 50%;
+    max-width: 400px;
+    min-width: 320px;
+    height: auto;
+    visibility: hidden;
+    top: 8%;
+    left: 50%;
+    z-index: 1000;
+    opacity: 0;
+    background: rgba(143,27,15,0.8);
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.md-show ~ .md-overlay {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Content styles */
+.md-content {
+    color: #000;
+    /*background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);*/
+    background: #fff;
+    position: relative;
+    border-radius: 3px;
+    margin: 0 auto;
+}
+
+.md-content h3 {
+    margin: 0;
+    padding: 0.4em;
+    text-align: center;
+    font-size: 2.4em;
+    font-weight: 300;
+    opacity: 0.8;
+    background: rgba(0,0,0,0.1);
+    border-radius: 3px 3px 0 0;
+}
+
+.md-content > div {
+    padding: 15px 40px 30px;
+    margin: 0;
+    font-weight: 300;
+    font-size: 1.15em;
+}
+
+.md-content > div p {
+    margin: 0;
+    padding: 10px 0;
+}
+
+.md-content > div ul {
+    margin: 0;
+    padding: 0 0 30px 20px;
+}
+
+.md-content > div ul li {
+    padding: 5px 0;
+}
+
+.md-content button {
+    display: block;
+    margin: 0 auto;
+    font-size: 0.8em;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 23px;
+    cursor: pointer;
+    user-select: none;
+    background:#01b76c;
+    color: #fff;
+}
+
+/* Individual modal styles with animations/transitions */
+
+/* Effect 1: Fade in and scale up */
+.md-effect-1 .md-content {
+    -webkit-transform: scale(0.7);
+    -moz-transform: scale(0.7);
+    -ms-transform: scale(0.7);
+    transform: scale(0.7);
+    opacity: 0;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.md-show.md-effect-1 .md-content {
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+}

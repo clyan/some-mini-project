@@ -1,0 +1,98 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Matching Game</title>
+    <meta name="description" content="">
+
+    <link rel="stylesheet prefetch" href="./css/fonts/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="./css/app.css">
+
+</head>
+<body style="">
+
+<div class="container">
+    <header>
+        <h1>翻牌游戏</h1>
+    </header>
+
+    <section class="score-panel">
+        <div style="float: left;">
+            <ul class="stars" id="stars">
+
+            </ul>
+        </div>
+        <div class="time" id="time" style="float: right;margin-right: 200px;">
+<!--            00:00:00-->
+            <span id="id_H">00</span>&nbsp;:&nbsp;<span id="id_M">00</span>&nbsp;:&nbsp;<span id="id_S">00</span>
+        </div>
+    </section>
+    <div>
+        <ul class="deck" id="deck">
+            <li class="card open match"><i class="fa fa-leaf"></i></li>
+            <li class="card open match"><i class="fa fa-leaf"></i></li>
+            <li class="card open match"><i class="fa fa-bicycle"></i></li>
+            <li class="card open match"><i class="fa fa-diamond"></i></li>
+            <li class="card open match"><i class="fa fa-cube"></i></li>
+            <li class="card open match"><i class="fa fa-cube"></i></li>
+            <li class="card open match"><i class="fa fa-bicycle"></i></li>
+            <li class="card open match"><i class="fa fa-paper-plane-o"></i></li>
+            <li class="card open match"><i class="fa fa-anchor"></i></li>
+            <li class="card open match"><i class="fa fa-anchor"></i></li>
+            <li class="card open match"><i class="fa fa-bolt"></i></li>
+            <li class="card open match"><i class="fa fa-diamond"></i></li>
+            <li class="card open match"><i class="fa fa-bolt"></i></li>
+            <li class="card open match"><i class="fa fa-paper-plane-o"></i></li>
+            <li class="card open match"><i class="fa fa-anchor"></i></li>
+            <li class="card open match"><i class="fa fa-anchor"></i></li>
+            <li class="card open match"><i class="fa fa-bolt"></i></li>
+            <li class="card open match"><i class="fa fa-paper-plane-o"></i></li>
+            <li class="card open match"><i class="fa fa-anchor"></i></li>
+            <li class="card open match"><i class="fa fa-anchor"></i></li>
+        </ul>
+        <section class="setting" style="padding: 2px 0;">
+            <div class="mode">
+                <div class="active">
+                    <button class="button type" value="simple">
+                        <a href="#" >简单</a>
+                    </button>
+                </div>
+                <div>
+                    <button class="button type" value="middle">
+                        <a href="#" >中等</a>
+                    </button>
+                </div>
+                <div>
+                    <button class="button type" value="difficulty">
+                        <a href="#" >困难</a>
+                    </button>
+                </div>
+            </div>
+            <div class="setting-icon">
+                <p>
+                    <i class=" fa fa-music" onclick="music(this)"></i>
+                    <i class="fa fa-repeat restart"  onclick="restart('simple')"></i>
+                </p>
+            </div>
+        </section>
+    </div>
+    <video id="music" src="./video/bc.mp3" loop style="display: none;">
+    </video>
+    <div class="md-modal md-effect-1 md-overlay" id="modal-1">
+        <div class="md-content">
+            <div>
+                <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">恭喜你游戏成功，共用时:</font>
+                    <span id="successTime">00:00:00</span></font>
+                </p>
+
+                <button class="md-close" type="button" onclick="changeModal()">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="./js/jquery.min.js"></script>
+<script src="./js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>当然是小游戏啦</title>
+</head>
+<body>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>html5调用摄像头拍照</title>
+    <style scoped>
+        .item {
+            border-bottom: 1px solid darkgrey;
+        }
+        img{
+            width:200px;
+        }
+    </style>
+</head>
+<body>
+ {{data}}   
+
+<div id="info-box">
+    {{#each userList}}
+        <div class="item" id="a{{dataValues.id}}">
+            <span>{{dataValues.ip}}</span>         
+            <img src="{{dataValues.img}}" />
+            <button class="delUser" img-name="{{dataValues.img}}"  attr="{{dataValues.id}}">删除</button>
+        </div>
+    {{/each}}
+</div>
+
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/axios/0.19.2/axios.js"></script>
+<script >
+    var infoBox = document.querySelector('#info-box');
+    var delUser = function (e) {
+      var target = e.target;
+      if (target.tagName == 'BUTTON' && target.classList.contains('delUser')) {
+            var id = target.getAttribute('attr'),
+                    name = target.getAttribute('img-name');
+            axios.post('manage/delUser',{id:id,name:name}).then(res => {
+                if (res.data.data === 1) {
+                    infoBox.removeChild(document.querySelector('#a'+ id))
+                }
+            })
+        }
+    };
+    infoBox.addEventListener('click', delUser);
+    var photos = document.querySelectorAll('.delUser');
+
+</script>
+</html>

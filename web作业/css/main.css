@@ -1,0 +1,617 @@
+* {
+    box-sizing: border-box;
+}
+.unselectable {
+    user-select: none;
+}
+.isBottom {
+    position: relative;
+    transform: translate3d(0px, 2868px, 0px);
+}
+.block-title {
+    display: flex;
+    align-items: center;
+    height: 84px;
+    padding: 0 15px;
+}
+.block-title h2 {
+    font-size: 24px;
+}
+.block-title .external {
+    flex: 2;
+    align-items: center;
+}
+.adaptive-list, .block-title .external {
+    display: flex;
+}
+.block-title .action {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 300;
+}
+
+/*主体内容区*/
+.content-wrapper {
+    max-width: 1230px;
+    min-width: 850px;
+    margin: 0 auto;
+}
+
+/*左侧导航*/
+.sticky-leftbar {
+    position: relative;
+    z-index: 8;
+    float: left;
+    width: 265px;
+}
+.leftbar-inner {
+    padding: 70px 0 74px;
+    position: fixed;
+    top: 0px;
+    width: 265px;
+    transform: translate3d(0px, 0px, 0px);
+}
+.left-nav .leftbar-inner, .leftbar-content, .left-nav .leftbar-inner .leftbar-content .links {
+    display: flex;
+    flex-direction: column;
+}
+.left-nav .leftbar-inner .leftbar-content .links>a.active {
+    font-weight: bolder;
+    border-bottom: 3px solid;
+    color: inherit;
+}
+.left-nav .leftbar-inner .leftbar-content .links>a {
+    display: block;
+    margin-top: 9px;
+    height: 32px;
+    line-height: 32px;
+    color: #4a4a4a;
+    font-size: 14px;
+    font-weight: 300;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: color .2s;
+}
+.left-nav .leftbar-inner .leftbar-content .links> .active {
+    border-bottom: 3px solid #000;
+
+}
+
+
+.left-nav .leftbar-inner .leftbar-content .download-panel {
+    position: relative;
+    margin-top: 20px;
+}
+.download-panel .download-info {
+    height: 119px;
+}
+.download-panel .download-info .download-theme {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 115px;
+    height: 119px;
+}
+.download-panel .download-info .download-text {
+    position: relative;
+    padding-top: 5px;
+    width: 100px;
+}
+.download-panel .platforms .platform .text {
+    margin-top: 10px;
+    font-size: 12px;
+    transform: scale(.8);
+    white-space: nowrap;
+}
+.download-panel .download-info .download-text .hint {
+    font-size: 12px;
+    font-weight: 500;
+    color: #ff410f;
+    line-height: 16px;
+}
+.download-panel .download-info .download-text .slogan {
+    margin-top: 5px;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 18px;
+}
+.download-panel .download-info .download-text p {
+    margin: 0;
+}
+.download-panel .platforms .platform.ios .icon {
+    background-color: #41474d;
+}
+.download-panel .platforms .platform .icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.sticky-leftbar .leftbar-inner .leftbar-content {
+    padding: 30px;
+    background: #fff;
+    transition: transform .35s;
+    transform: translateY(20px);
+    box-shadow: 0 0 1px darkgrey;
+}
+.download-panel .platforms, .download-panel .platforms .platform {
+    display: flex;
+}
+.download-panel .platforms {
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+.download-panel .platforms .platform {
+    flex: 0 0 33%;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 12px;
+    overflow: hidden;
+}
+.download-panel .platforms .platform .text {
+    margin-top: 10px;
+    font-size: 12px;
+    -webkit-transform: scale(.8);
+    -ms-transform: scale(.8);
+    transform: scale(.8);
+    white-space: nowrap;
+}
+
+
+
+/*轮播图*/
+#banner-container {
+    position: absolute;
+    left: 0;
+    top: 70px;
+    width: 100%;
+    min-width: 850px;
+    max-height: 360px;
+    height: 360px;
+}
+.banner-shadow-container {
+    margin-top: -55px;
+    width: 100%;
+    padding: 0 15px;
+}
+.banner-shadow-container .banner-shadow {
+    height: 0;
+    padding-bottom: 40%;
+}
+.swiper-container {
+    width: 100%;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.swiper-item {
+    width: 100%;
+    height: 100%;
+}
+.content-body {
+    margin-left: 280px;
+    padding: 125px 0 94px;
+}
+.radio-container, .radio-item {
+    display: flex;
+}
+.radio-container .radio-item {
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
+.radio-container .radio-item .radio-icon {
+    width: 48px;
+    height: 48px;
+}
+.radio-container .radio-item .radio-name {
+    margin-top: 15px;
+    font-size: 16px;
+}
+#collect-container {
+    margin-top: 30px;
+}
+.block-title {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    height: 84px;
+    padding: 0 15px;
+}
+
+h2 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 500;
+    white-space: nowrap;
+}
+.block-title h2 {
+    font-size: 24px;
+}
+.block-title .external {
+    flex: 2;
+    align-items: center;
+}
+#collect-container .block-title .count {
+    flex: 2;
+    margin-left: 15px;
+    margin-right: -1000px;
+    font-size: 64px;
+    color: #f8f8f8;
+}
+#collect-container .block-title .action {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 300;
+}
+#collect-container .block-title .action .button {
+    margin-left: 10px;
+    font-size: 32px;
+}
+.button.round {
+    min-width: 40px;
+    width: 40px;
+}
+.button.round .fa {
+    width: 40px;
+}
+.adaptive-list, .block-title .external {
+    display: flex;
+}
+.unselectable {
+    user-select: none;
+}
+.adaptive-list {
+    flex-wrap: wrap;
+    transition: opacity .5s;
+}
+.adaptive-list, .block-title .external {
+
+    display: flex;
+}
+
+/*radio-container*/
+.radio-container{
+
+}
+.radio-container .radio-item .radio-icon {
+    width: 48px;
+    height: 48px;
+}
+
+
+
+/*collect-container*/
+.adaptive-list{
+    display: flex;
+    transition: opacity .5s;
+}
+.adaptive-list .recommend-item{
+    flex: 0 0 40%;
+    max-width: 40%;
+}
+.recommend-item .wrapper {
+    position: relative;
+    overflow: hidden;
+    padding-top: 66.66%;
+}
+ .adaptive-list .collect-item{
+    flex: 0 0 20%;
+    max-width: 20%;
+}
+.recommend-item .wrapper .cover {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 2px;
+    background: #d9d9d9 no-repeat 50%;
+    background-size: 100%;
+    box-shadow: inset 1px 1px 0 rgba(0,0,0,.05), inset -1px -1px 0 rgba(0,0,0,.05);
+}
+.recommend-item .wrapper .info {
+    position: absolute;
+    z-index: 2;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    border-radius: 0 0 2px 2px;
+    background: #d9d9d9 no-repeat bottom;
+    background-size: 100%;
+    color: #fff;
+    display: flex;
+    align-items: center;
+}
+.recommend-item .wrapper .info .info-wrapper {
+    overflow: hidden;
+    margin-left: 8px;
+    margin-right: 10px;
+}
+.recommend-item .wrapper .info .info-wrapper .name {
+    display: flex;
+    align-items: center;
+    height: 16px;
+    font-weight: 700;
+}
+.recommend-item .wrapper .info .avatar {
+    -webkit-flex-shrink: 0;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    margin-left: 16px;
+    border-radius: 50%;
+    background: no-repeat 50%;
+    background-size: contain;
+}
+.collect-item,  .recommend-item, daily-item {
+    box-sizing: border-box;
+    padding: 0 15px 30px;
+}
+.daily-item {
+    padding: 0 15px 50px;
+}
+.wrapper
+{
+    position: relative;
+    overflow: hidden;
+}
+.cover
+{
+    position: relative;
+    z-index: 2;
+    padding-top: 100%;
+    border-radius: 2px;
+    /*background-color: #d9d9d9;*/
+}
+.cover .image{
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    border-radius: 2px;
+}
+.cover .image img{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 100%;
+}
+.cover .count{
+    position: absolute;
+    right: 16px;
+    top: 1px;
+    height: 24px;
+    padding-left: 9px;
+    background: url(https://img.alicdn.com/tfs/TB1xEGRub9YBuNjy0FgXXcxcXXa-268-48.png) no-repeat 0;
+    background-size: cover;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 24px;
+}
+.cover .action {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.cover .action button.play {
+    background-color: #ff4a0f;
+}
+.cover .action button {
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    font-size: 24px;
+    line-height: 32px;
+    color: #fff;
+    cursor: pointer;
+}
+.info .name {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    font-weight: 700;
+    line-height: 18px;
+}
+.info .author, .info .tags {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.info .tags {
+    margin-top: 10px;
+    font-size: 12px;
+    color: #ff410f;
+}
+.info .author {
+    margin-top: 5px;
+    font-size: 12px;
+    color: #999;
+}
+.tags .tag-item {
+    margin-right: 10px;
+}
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.block-title {
+    display: flex;
+    align-items: center;
+    height: 84px;
+    padding: 0 15px;
+    position: relative;
+}
+.adaptive-list, .block-title .external {
+    display: flex;
+}
+
+.tabs {
+    display: flex;
+    font-weight: 300;
+    font-size: 16px;
+}
+.tabs .tab.active {
+    font-weight: 500;
+}
+.tabs .tab:first-child {
+    margin-left: 0;
+}
+.tabs .tab {
+    position: relative;
+    margin-left: 40px;
+    padding: 7px 0;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+
+.table .table-container {
+    height: 100%;
+    overflow-y: auto;
+}
+.song-table tr .index-container {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+.song-table tr .index-container .audio-icon {
+    display: none;
+}
+.audio-icon {
+    width: 18px;
+    height: 18px;
+    min-width: 18px;
+    display: flex;
+    overflow: hidden;
+}
+.song-table tr .index-container .play-btn {
+    display: none;
+    font-size: 24px;
+    text-align: left;
+    cursor: pointer;
+}
+
+/*新碟速递*/
+#album-container .adaptive-list .album-item {
+    flex: 0 0 20%;
+    max-width: 20%;
+    padding: 0 15px 30px;
+}
+.album-item .wrapper {
+    position: relative;
+    padding-right: 10px;
+    overflow: hidden;
+}
+.album-item .info {
+    margin-top: 15px;
+}
+.album-item .info .name {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    font-weight: 700;
+    line-height: 18px;
+}
+.album-item .info .author {
+    overflow: hidden;
+    white-space: nowrap;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    margin-top: 5px;
+    font-size: 12px;
+    color: #999;
+}
+.album-item .info .grade-wrap {
+    margin-top: 5px;
+}
+
+.album-item .info .time {
+    margin-top: 5px;
+    font-size: 12px;
+    color: #999;
+}
+.rate {
+    color: #d1d1d1;
+    position: relative;
+    display: inline-flex;
+}
+.album-item .info .grade-wrap .grade .grade-num {
+    display: inline-block;
+    margin-left: 4px;
+    font-size: 12px;
+}
+/*热门艺人*/
+#artist-container {
+    margin-top: 10px;
+    padding-bottom: 30px
+}
+
+.block-title .count {
+    flex: 2;
+    margin-left: 15px;
+    margin-right: -1000px;
+    font-size: 64px;
+    color: #f8f8f8
+}
+
+.block-title .action {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 300
+}
+
+.block-title .action .button {
+    margin-left: 10px;
+    font-size: 32px
+}
+
+#artist-container .artist-item {
+    padding: 0 15px
+}
+.artist-item .cover .image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+/*mv*/
+
+.mv-item .cover {
+    position: relative;
+    z-index: 2;
+    padding-top: 56%;
+    border-radius: 2px;
+    background-color: #000;
+}

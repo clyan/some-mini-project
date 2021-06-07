@@ -1,0 +1,132 @@
+* {
+    user-select: none;
+}
+body {
+    background-color: #eee;
+    min-width: 850px;
+    overscroll-behavior-y: none;
+    min-height: calc(100% + 1px);
+    color: #4a4a4a;
+    margin: 0;
+}
+.container {
+    position: relative;
+    max-width: 1440px;
+    margin: 0 auto;
+    height: 100%;
+}
+
+.page-container {
+    position: relative;
+    overflow: hidden;
+    color: #4a4a4a;
+    padding-bottom: 400px;
+    min-height: 100%;
+    background-color: #fff;
+}
+.top-nav {
+    position: fixed;
+    z-index: 999;
+    width: 100%;
+    max-width: 1440px;
+    background-color: #fff;
+}
+.top-nav-wrapper {
+    margin: 0 auto;
+    max-width: 1230px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+.logo {
+    margin-right: 40px;
+    height: 30px;
+    width: 108px;
+    cursor: pointer;
+}
+.nav-links {
+    display: flex;
+}
+.nav-links a {
+    color: #000;
+}
+.nav-links > li, .link-child > li {
+    list-style: none;
+    cursor: pointer;
+
+}
+.link-child {
+    background: #fff;
+    padding: 20px;
+    box-shadow:0 0 10px #b4bccc;
+}
+.link-child li {
+    border-bottom: 1px solid #b4bccc;
+}
+.nav-links > li{
+    position: relative;
+    padding: 15px 20px;
+    line-height: 40px;
+}
+.nav-links .link-child {
+    position: fixed;
+    margin-left: -40px;
+    top: 70px;
+    visibility: hidden;
+    color: #4a4a4a;
+    transtion: all .3s;
+}
+.nav-links > li:hover{
+    color: #00AEE8;
+}
+.nav-links > li:hover .link-child {
+   visibility: visible;
+}
+.nav-links > li > .link-child > li:hover{
+    color: #00AEE8;
+}
+.Sline {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    fill: none;
+    stroke-width: 1px;
+    stroke: #555555;
+    pointer-events: none;
+    transition: all 0.6s ease-out;
+}
+.nav-links {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-right: auto;
+    height: 100%;
+}
+.top-nav .user {
+    height: 30px;
+    flex-shrink: 0;
+}
+
+.top-nav .user .login-text {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 30px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+.top-nav-search {
+
+}
+.top-nav-search input {
+    border: 0;
+    border-bottom: 1px solid #4a4a4a;
+    padding: 0;
+    height: 100%;
+    width: 105px;
+    transition: width .3s;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

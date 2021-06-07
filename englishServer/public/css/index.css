@@ -1,0 +1,103 @@
+
+header{
+    position: relative;
+    padding: 15px 20px;
+    z-index: 99;
+    font-size: 24px;
+    box-shadow: 0px 5px 5px -5px rgba(0,0,0,.5);
+}
+header .title{
+    text-align: left;
+    font-weight: bold;
+    display: inline-block;
+}
+.main{
+    display: flex;
+    flex-direction: row;
+    height: calc(100vh - 57px);
+    margin-top: 2px;
+}
+.menu-btn{
+    cursor: pointer;
+    transition: all .3s;
+}
+
+@media  screen and (max-width: 768px){
+    .menu-btn{
+        display: inline-block;
+    }
+    .nav{
+        position: absolute;
+        background: #fff;
+        left: -500px;
+    }
+}
+
+.nav{
+    position: relative;
+    flex: auto 0 1;
+    overflow-y:scroll ;
+    height:100%;
+    transition: all .7s;
+    left: 0px;
+    user-select: none;
+    box-shadow: 5px 0px 5px -5px rgba(0,0,0,.5);
+}
+.nav ul li h2{
+    font-size: 16px;
+}
+.nav ul li {
+    list-style: none;
+    border-top: 1px solid #b4bccc;
+    text-align: center;
+    font-size: 14px;
+}
+.nav ul span{
+    display: inline-block;
+    width: 25px;
+    padding: 0 5px 0 0;
+    text-align: right;
+}
+.nav ul li:last-of-type{
+    border-bottom: 1px solid #b4bccc;
+}
+.nav ul li a{
+    display: block;
+    padding: 15px 20px;
+    text-align: left;
+    text-decoration: none;
+    color: #000;
+}
+.nav ul li a:hover{
+    color: #40AFFE;
+}
+.pdf-canvas{
+    width: auto;
+    overflow-y: scroll;
+    flex-grow: 1;
+    height:100%;
+}
+canvas{
+    display: block;
+    margin: 0 auto;
+    border-top: 2px solid green;
+}
+.myIframe{
+    width: 100%;
+    height: 100%;
+}
+.active a{
+    color: #40AFFE !important;
+}
+.to-top {
+    background: url('../img/back-top.png') no-repeat left top;
+    width: 55px;
+    height: 55px;
+    color: #fff;
+    border-radius: 4px;
+    display: none;
+    z-index: 100;
+}
+.to-top:hover{
+    background:  url('../img/back-top.png') no-repeat left bottom;
+}

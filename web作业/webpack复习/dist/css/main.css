@@ -1,0 +1,15 @@
+body {
+  background-color: #b4bccc;
+}
+body {
+  background: url(http://127.0.0.1:9000/img/811c953dafb71789ce79e29e8803d581.png);
+}
+body span {
+  color: #00AEE8;
+  display: inline-block;
+  transform: rotateY(30deg);
+}
+h2 {
+  color: #00ffff;
+}
+

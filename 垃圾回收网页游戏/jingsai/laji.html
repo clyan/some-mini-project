@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>垃圾分类游戏</title>
+		<link href="css/laji.css"  rel="stylesheet"/>
+	</head>
+	<body>
+	<header>
+		<h1>垃圾分类游戏</h1>
+	</header>
+		<div id="divBox" style="background-color: #2e96cb;border-radius: 10px;">
+			<div id="DivFS">
+				<span>满分：</span>
+				<span id="countFs" class="label"></span>
+				<span>，得分：</span>
+				<span id="sfs"  class="label">0</span>
+				<span>分</span><br/>
+				<span>垃圾个数：</span>
+				<span id="sljgs"  class="label">0</span>
+			</div>
+			<div id="divLj">
+				<img draggable="false" src="images/lj/1_1.jpg" id="imgLJ" />
+				<br/>
+				<div id="divCJ">
+					<img  draggable="false" src="images/yesORno/no.jpg" id="imgCJ"  />
+				</div>
+			</div>
+			<div style="text-align: center;">
+				<input type="button" id="start" class="btn" value="开始游戏" onclick="begin()"/>
+			</div>
+			<div id="divTong">
+				<img draggable="false" src="images/tong/干垃圾.jpg" class="tong" onclick="laji('1')"/>
+				<img draggable="false" src="images/tong/湿垃圾.jpg" class="tong" onclick="laji('2')"/>
+				<img draggable="false" src="images/tong/可回收垃圾.jpg" class="tong" onclick="laji('3')"/>
+				<img draggable="false" src="images/tong/有害垃圾.jpg" class="tong" onclick="laji('4')"/>
+			</div>
+		</div>
+		<div  id="modal-1" class="md-overlay" style="width: 100%;height: 100vh;position: absolute;top: 0;background-color: rgba(0, 0, 0, .5)">
+			<div class="md-modal md-effect-1">
+				<div class="md-content">
+					<div>
+						<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">游戏结束，总得分:</font>
+							<span id="success"></span></font>
+						</p>
+						<button class="md-close btn" type="button" onclick="hideModal()">确定</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/laji.js"></script>
+</html>
